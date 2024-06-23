@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FastCampusAdvanced"
 include(":app")
+include(":face_recognition")
