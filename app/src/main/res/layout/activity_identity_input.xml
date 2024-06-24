@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.example.fastcampusadvanced.chapter2.IdentityInputActivity" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        tools:context=".chapter2.IdentityInputActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="본인 확인을 위해 정보를 입력해주세요." />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="48dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:divider="@drawable/empty_16"
+                android:showDividers="middle"
+                android:orientation="vertical" >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/confirm_btn"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/design_default_color_secondary"
+                    android:visibility="gone"
+                    android:onClick="@{() -> view.onClickDone()}"
+                    tools:visibility="visible"
+                    android:text="입력 완료"
+                    android:paddingHorizontal="48dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.App.TextInputLayout.Clear"
+                    android:visibility="gone"
+                    tools:visibility="visible" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.App.TextInputEditText"
+                        android:hint="휴대폰 번호"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="11" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/telecom_l"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    tools:visibility="visible" >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="통신사"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/telecom_cg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:chipSpacingHorizontal="8dp"
+                        app:selectionRequired="true"
+                        app:singleSelection="true" >
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/skt_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="01"
+                            android:text="SKT" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/kt_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="02"
+                            android:text="KT" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/lg_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="03"
+                            android:text="LG U+" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/cheap_skt_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="04"
+                            android:text="SKT 알뜰폰" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/cheap_kt_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="05"
+                            android:text="KT 알뜰폰" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/cheap_lg_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="06"
+                            android:text="LG U+ 알뜰폰" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gender_l"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    tools:visibility="visible" >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="성별"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/gender_cg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:chipSpacingHorizontal="8dp"
+                        app:selectionRequired="true"
+                        app:singleSelection="true" >
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/male_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="01"
+                            android:text="남자" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/female_chip"
+                            style="@style/Widget.App.ChoiceChip"
+                            android:tag="02"
+                            android:text="여자" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birthday_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.App.TextInputLayout.Clear"
+                    android:visibility="gone"
+                    tools:visibility="visible" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birthday_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.App.TextInputEditText"
+                        android:hint="생년월일"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="8" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.App.TextInputLayout.Clear" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.App.TextInputEditText"
+                        android:hint="이름"
+                        android:imeOptions="actionNext" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
