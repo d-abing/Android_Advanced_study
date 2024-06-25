@@ -13,6 +13,18 @@
         android:theme="@style/Theme.FastCampusAdvanced"
         tools:targetApi="31">
         <activity
+            android:name=".chapter3.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chapter3.WalletActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".chapter2.VerifyOtpActivity"
             android:exported="false" />
         <activity
@@ -23,13 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".chapter2.SecurityActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".chapter1.FaceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.fastcampusadvanced.chapter3.model.DetailItem" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textSize="15sp"
+            app:date="@{item.date}"
+            tools:text="2024.1.1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_5"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:type="@{item.type}"
+            tools:text="type" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/content_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="0.35"
+            android:text="@{item.content}"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/amount_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="0.3"
+            android:gravity="end"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:amount="@{item.amount}"
+            tools:text="1000원" />
+
+    </LinearLayout>
+</layout>

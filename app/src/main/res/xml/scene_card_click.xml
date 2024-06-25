@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/delay_start_transition"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/start"
+        app:constraintSetStart="@id/delay_start"
+        app:duration="@integer/duration_move" />
+
+    <Transition
+        android:id="@+id/delay_start_to_fan_out"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/fan_out"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000"
+        app:motionInterpolator="bounce" />
+
+        <Transition
+            android:id="@+id/fan_out_to_collapse_cards"
+            app:constraintSetEnd="@+id/first_card_on_top"
+            app:constraintSetStart="@+id/fan_out"
+            app:duration="@integer/duration_move" />
+
+    <Transition
+        android:id="@+id/third_card_to_second_card"
+        app:constraintSetEnd="@+id/second_card_on_top"
+        app:constraintSetStart="@+id/third_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/second_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/third_card_to_First_card"
+        app:constraintSetEnd="@+id/first_card_on_top"
+        app:constraintSetStart="@+id/third_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/first_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/second_card_to_third_card"
+        app:constraintSetEnd="@+id/third_card_on_top"
+        app:constraintSetStart="@+id/second_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/third_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/second_card_to_first_card"
+        app:constraintSetEnd="@+id/first_card_on_top"
+        app:constraintSetStart="@+id/second_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/first_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/first_card_to_third_card"
+        app:constraintSetEnd="@+id/third_card_on_top"
+        app:constraintSetStart="@+id/first_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/third_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/first_card_to_second_card"
+        app:constraintSetEnd="@+id/second_card_on_top"
+        app:constraintSetStart="@+id/first_card_on_top"
+        app:duration="@integer/duration_move"
+        app:motionInterpolator="easeOut" >
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="@integer/rotation_move"
+                android:translationX="@dimen/translation_move_x"
+                android:translationY="@dimen/translation_move_y"
+                app:framePosition="50"
+                app:motionTarget="@+id/second_card"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/delay_start" />
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet android:id="@+id/fan_out" >
+
+        <Constraint android:id="@+id/third_card">
+            <Transform
+                android:rotation="-17"
+                android:translationX="-12dp"
+                android:translationY="-60dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/second_card">
+            <Transform
+                android:translationX="12dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/first_card">
+            <Transform
+                android:rotation="17"
+                android:translationX="-12dp"
+                android:translationY="60dp" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/first_card_on_top" >
+
+        <Constraint android:id="@+id/third_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_top" />
+        </Constraint>
+
+        <Constraint android:id="@+id/second_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_bottom" />
+        </Constraint>
+
+        <Constraint android:id="@+id/first_card">
+            <Transform
+                android:elevation="@dimen/elevation_front" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/second_card_on_top" >
+
+        <Constraint android:id="@+id/third_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_top" />
+        </Constraint>
+
+        <Constraint android:id="@+id/second_card">
+            <Transform
+                android:elevation="@dimen/elevation_front" />
+        </Constraint>
+
+        <Constraint android:id="@+id/first_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_bottom" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/third_card_on_top" >
+
+        <Constraint android:id="@+id/third_card">
+            <Transform
+                android:elevation="@dimen/elevation_front" />
+        </Constraint>
+
+        <Constraint android:id="@+id/second_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_top" />
+        </Constraint>
+
+        <Constraint android:id="@+id/first_card">
+            <Transform
+                android:elevation="@dimen/elevation_back"
+                android:rotation="@integer/rotation_bottom" />
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>

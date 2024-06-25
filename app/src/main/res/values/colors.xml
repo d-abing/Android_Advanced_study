@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="first_card">#BB86FC</color>
+    <color name="second_card">#EB455F</color>
+    <color name="third_card">#439A97</color>
+    <color name="point">#6C00FF</color>
+    <color name="cancel">#FF0000</color>
+    <color name="pay">#000000</color>
 </resources>
