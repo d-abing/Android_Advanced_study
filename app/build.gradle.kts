@@ -38,6 +38,9 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -61,7 +64,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("io.coil-kt:coil:2.2.2")
 
-    implementation("androidx.activity:activity-ktx:1.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
@@ -71,4 +73,12 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
+    implementation("androidx.fragment:fragment-ktx:1.8.1")
+
+    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
+
+    implementation("org.mockito:mockito-inline:5.0.0")
+    implementation("androidx.arch.core:core-testing:2.2.0")
 }
